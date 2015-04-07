@@ -1,10 +1,10 @@
 module ApplicationHelper
   def full_title(page_title = "")
-    base_title = "Repay"
+    base_title = "Portal"
     if page_title.present?
-      "Repay - #{page_title}"
+      "#{page_title} - Portal"
     else
-      "Repay"
+      "Portal"
     end
   end
 end
