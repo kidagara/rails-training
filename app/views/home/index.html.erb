@@ -1,2 +1,35 @@
-<% content_for :title, "Home Page" %>
-<h1>Hello</h1>
+<% content_for :title, "Home" %>
+
+<div class="row">
+
+  <div class="home-header">
+    <div class="home-header-top">
+      <div class="home-header-image">
+        <h1>Hello World</h1>
+        <h3>Welcome to the portal testing website</h3>
+      </div>
+    </div>
+    <div class="home-header-bottom">
+      <div>
+        <%= image_tag("http://placehold.it/190x66") %>
+        <!--
+        image_tag("family-img-2.jpg", size: "190x66")
+        image_tag("family-img-3.jpg", size: "190x66")
+        image_tag("family-img-4.jpg", size: "190x66")
+        -->
+        image one
+      </div>
+      <div>
+        <%= image_tag("http://placehold.it/190x66", size: "190x66") %>
+        image two
+      </div>
+      <div>
+        <%= image_tag("http://placehold.it/190x66", size: "190x66") %>
+        image three
+      </div>
+    </div>
+  </div>
+
+
+  <h1>Hello World</h1>
+</div>
