@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
 
-  <h1>Listing Images</h1>
+  <h1>Image Gallery</h1>
 
   <table>
     <thead>
@@ -9,22 +9,14 @@
         <th>Name</th>
         <th>Description</th>
         <th>Picture</th>
-        <th colspan="3"></th>
+        <th>Uploaded by</th>
+        <th colspan="2"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @images.each do |image| %>
         <tr>
-
-          <%= link_to(root_path) do %>
-            <h3>
-              Testing<br/>
-              <span class="title">Portal Website</span>
-            </h3>
-          <% end %>
-
-
           <td><%= image.name %></td>
           <td><%= image.description %></td>
           <td>
@@ -32,6 +24,7 @@
               <%= image_tag image.picture_url(:thumb) if image.picture? %>
             <% end %>
           </td>
+          <td><%= image.uploaded_by %></td>
           <td><%= link_to 'Edit', edit_image_path(image) %></td>
           <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

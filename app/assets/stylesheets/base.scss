@@ -32,42 +32,6 @@
   }
 }
 
-.home-header-top {
-  display: inline-block;
-  width: 100%;
-  position: relative;
-}
-
-.home-header-top::after {
-  padding-top: 200px;
-  display: block;
-  content: '';
-}
-
-.home-header-image {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  outline: thin solid green;
-  //background-image: image_url('family-img-1.jpg');
-  background-image: url("http://placehold.it/1000x400");
-  background-size: 100%;
-  background-position: center;
-  text-align: center;
-  z-index: -1;
-  h1 {
-    //padding-top: 100px;
-    color: white;
-    text-shadow: black 2px 4px;
-  }
-  h3 {
-    color: white;
-    text-shadow: black 2px 2px;
-  }
-}
-
 .home-header-bottom {
   text-align: center;
   display: block;

@@ -1,17 +1,30 @@
-<p>
-  <strong>Name:</strong>
-  <%= @image.name %>
-</p>
+<div class="row">
+  <p>
+    <strong>Name:</strong>
+    <%= @image.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @image.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @image.description %>
+  </p>
 
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@image.picture_url, :width => 400) if @image.picture.present? %>
-</p>
+  <p>
+    <strong>Picture:</strong>
+    <%= image_tag(@image.picture_url, :width => 400) if @image.picture.present? %>
+  </p>
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+  <h3>Comments</h3>
+  <% @comments.each do |comment| %>
+    <div>
+      <strong><%= comment.user_name %></strong>
+      <br />
+      <p><%= comment.body %></p>
+      <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    </div>
+  <% end %>
+  <%= render 'comments/form' %>
+
+  <%= link_to 'Edit', edit_image_path(@image) %> |
+  <%= link_to 'Back', images_path %>
+</div>

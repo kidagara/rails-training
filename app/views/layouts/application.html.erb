@@ -44,17 +44,14 @@
 
     <div class="container">
 
-      <% flash.each do |name, msg| %>
+      <!-- <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
+      <% end %> -->
 
       <%= yield %>
 
-      <% if user_signed_in? %>
-        <% if current_user.username == "elizabethh" %>
+      <% if user_signed_in? && current_user.username == "elizabethh" %>
         <p>hello me. I'm awesome.</p>
-        <% end %>
-
       <% end %>
 
     </div>
