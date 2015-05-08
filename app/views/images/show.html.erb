@@ -1,30 +1,29 @@
+<% content_for :title, "Image" %>
+
 <div class="row">
-  <p>
-    <strong>Name:</strong>
-    <%= @image.name %>
-  </p>
+  <div class="small-11 small-centered columns">
+    <h3><%= @image.name %></h3>
+    <p><%= @image.description %></p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @image.description %>
-  </p>
+    <p>
+      <%= image_tag(@image.picture_url) if @image.picture.present? %>
+    </p>
 
-  <p>
-    <strong>Picture:</strong>
-    <%= image_tag(@image.picture_url, :width => 400) if @image.picture.present? %>
-  </p>
+    <% if current_user.name == @image.uploaded_by || current_user.username == "elizabethh" %>
+      <%= link_to 'Edit this image', edit_image_path(@image), class: "button" %>
+    <% end %>
 
-  <h3>Comments</h3>
-  <% @comments.each do |comment| %>
-    <div>
-      <strong><%= comment.user_name %></strong>
-      <br />
-      <p><%= comment.body %></p>
-      <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-    </div>
-  <% end %>
-  <%= render 'comments/form' %>
+    <h3>Comments</h3>
+    <% @comments.each do |comment| %>
+      <div>
+        <strong><%= comment.user_name %></strong>
+        <br />
+        <p><%= comment.body %></p>
+        <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </div>
+    <% end %>
+    <%= render 'comments/form' %>
 
-  <%= link_to 'Edit', edit_image_path(@image) %> |
-  <%= link_to 'Back', images_path %>
+    <%= link_to 'Back', images_path %>
+  </div>
 </div>

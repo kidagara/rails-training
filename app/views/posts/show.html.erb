@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div>
+    <p><%= @post.post_text %></p>
+    <p>- <span class="posted-by-name"><%= @post.posted_by %></span> <span class="posted-at"><%= @post.created_at.strftime("%d %b %y") %></span></p>
+    <% if current_user.name == @post.posted_by || current_user.username == "elizabethh" %>
+      <%= link_to "edit post", edit_post_path(@post) %>
+    <% end %> |
+  <%= link_to 'Go to all posts', posts_path %>
+</div>

@@ -16,6 +16,8 @@ gem "foundation-rails"
 gem "carrierwave"
 gem "devise"
 gem "mini_magick", '3.8.0'
+gem 'fullcalendar-rails', '2.0.2.0'
+gem "font-awesome-rails"
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

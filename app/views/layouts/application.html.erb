@@ -9,57 +9,73 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "fullcalendar/gcal.js" %>
     <%= csrf_meta_tags %>
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,200,700' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
-    <div class="header">
-      <!-- this is the header, to be moved when we cover inserting partials -->
-      <nav class="top-nav">
-        <section id="gradient-top-bar"></section>
-        <div class="top-nav-left">
-          <% if user_signed_in? %>
-            Welcome <strong><%= current_user.name %></strong>.
-          <% end %>
+    <div class="wrapper">
+
+      <div class="header">
+        <!-- this is the header, to be moved when we cover inserting partials -->
+        <nav class="top-nav">
+          <section id="gradient-top-bar"></section>
+          <div class="top-nav-left">
+            <% if user_signed_in? %>
+              Welcome <strong><%= current_user.name %></strong>.
+            <% end %>
+          </div>
+          <div class="top-nav-center">
+            <%= link_to(root_path) do %>
+              <h3>
+                Testing<br/>
+                <span class="title">Portal Website</span>
+              </h3>
+            <% end %>
+          </div>
+          <div class="top-nav-right">
+            <% if user_signed_in? %>
+              <%= link_to 'Edit your account', edit_user_registration_path, :class => 'navbar-link' %> |
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            <% end %>
+          </div>
+        </nav>
+      </div>
+
+      <div class="container">
+
+        <!-- <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %> -->
+
+        <%= yield %>
+
+      </div>
+
+      <% if user_signed_in? %>
+        <div class="footer">
+          <div class="row">
+            <div class="medium-4 small-12 columns">
+              <%= link_to "Posts", posts_path %>
+            </div>
+            <div class="medium-4 small-12 columns">
+              <%= link_to "Image library", images_path %>
+            </div>
+            <div class="medium-4 small-12 columns">
+              something here
+            </div>
+            <% if current_user.username == "elizabethh" %>
+            <hr />
+              <div class="12-small columns">
+                <%= link_to "sign up new user", admin_page_path %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div class="top-nav-center">
-          <%= link_to(root_path) do %>
-            <h3>
-              Testing<br/>
-              <span class="title">Portal Website</span>
-            </h3>
-          <% end %>
-        </div>
-        <div class="top-nav-right">
-          <% if user_signed_in? %>
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-          <% end %>
-        </div>
-      </nav>
-    </div>
-
-
-    <div class="container">
-
-      <!-- <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %> -->
-
-      <%= yield %>
-
-      <% if user_signed_in? && current_user.username == "elizabethh" %>
-        <p>hello me. I'm awesome.</p>
       <% end %>
 
     </div>
-
-    <div class="footer">
-      <h6>footer</h6>
-      <%= link_to "images", images_path %>
-    </div>
-
   </body>
 </html>

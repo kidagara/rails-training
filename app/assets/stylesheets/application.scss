@@ -11,12 +11,15 @@
  * file per style scope.
  *
  @import "foundation_and_overrides";
+ @import "font-awesome";
  *= require ./base
  *= require ./layout
  *= require_tree ./global
  *= require_tree .
  *= require_tree ./pages
  *= require_self
+ *= require fullcalendar
+ *= require font-awesome
  //= require foundation_and_overrides
 
 

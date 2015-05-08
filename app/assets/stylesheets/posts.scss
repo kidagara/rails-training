@@ -1,0 +1,16 @@
+@import "foundation_and_overrides";
+@import "global/all";
+
+.posts-home p{
+  margin-bottom: 5px;
+}
+
+.posted-at {
+  color: $jumbo;
+  font-size: 0.6rem;
+}
+
+.posted-by-name {
+  color: $steel;
+  font-size: 0.8rem;
+}

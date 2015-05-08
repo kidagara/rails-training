@@ -15,6 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= require fullcalendar
 //= require foundation
 $(document).foundation();
 
@@ -78,3 +79,13 @@ var color2 = "#"+((r2 << 16) | (g2 << 8) | b2).toString(16);
 }
 
 setInterval(updateGradient,10);
+
+$(document).ready(function() {
+    $('#calendar').fullCalendar({
+        googleCalendarApiKey: "AIzaSyCfg8JQF2hLfb1xjeKVWEPZ_-Y0OzUMrzE",
+        events: {
+          googleCalendarId: "adl69nq4b6u8l2intqb08ig1hk@group.calendar.google.com"
+        }
+    })
+
+});

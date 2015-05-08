@@ -1,38 +1,34 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
+  <div class="small-11 columns">
 
-  <h1>Image Gallery</h1>
+    <h1>Image Gallery</h1>
+    <%= link_to 'Upload a new image', new_image_path, class: "button" %>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Picture</th>
-        <th>Uploaded by</th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
+    <div>
 
-    <tbody>
-      <% @images.each do |image| %>
-        <tr>
-          <td><%= image.name %></td>
-          <td><%= image.description %></td>
-          <td>
+        <% @images.each do |image| %>
+          <div class="medium-2 large-1 small-3 columns">
             <%= link_to(image) do %>
               <%= image_tag image.picture_url(:thumb) if image.picture? %>
             <% end %>
-          </td>
-          <td><%= image.uploaded_by %></td>
-          <td><%= link_to 'Edit', edit_image_path(image) %></td>
-          <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+          </div>
+          <div class="medium-8 large-9 small-7 columns">
+            <h3><%= image.name %></h3>
+            <p><%= image.description %></p>
+          </div>
+          <div class="small-2 columns"
+            <p><%= image.uploaded_by %></p>
+            <% if current_user.name == image.uploaded_by || current_user.username == "elizabethh" %>
+              <%= link_to 'Edit', edit_image_path(image) %> | <%= link_to 'Delete', image, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div>
+          <hr />
+        <% end %>
 
-  <br>
+    </div>
 
-  <%= link_to 'New Image', new_image_path %>
+    <br>
+
+  </div>
 </div>

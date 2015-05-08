@@ -29,6 +29,21 @@
     </div>
   </div>
 
-
-  <h1>Hello World</h1>
+  <div class="medium-7 columns">
+    <div class="posts-home">
+      <h3>Most recent posts</h3>
+      <% @posts.limit(10).reverse_each do |post| %>
+        <div>
+          <p><%= post.post_text %></p>
+          <p>- <span class="posted-by-name"><%= post.posted_by %></span> <span class="posted-at"><%= post.created_at.strftime("%d %b %y") %></span></p>
+          <!-- <td><%= link_to 'Show', post %></td> -->
+          <hr />
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="medium-5 columns">
+    <div id='calendar'></div>
+    links and stuff here too?
+  </div>
 </div>

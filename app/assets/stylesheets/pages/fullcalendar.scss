@@ -1,0 +1,10 @@
+@import "foundation_and_overrides";
+@import "global/all";
+
+.fc-header {
+  border: none;
+  margin-bottom: 5px;
+  h2 {
+    font-size: 19px;
+  }
+}
