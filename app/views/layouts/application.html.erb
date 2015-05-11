@@ -25,20 +25,22 @@
           <div class="top-nav-left">
             <% if user_signed_in? %>
               Welcome <strong><%= current_user.name %></strong>.
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
             <% end %>
           </div>
           <div class="top-nav-center">
             <%= link_to(root_path) do %>
               <h3>
-                Testing<br/>
-                <span class="title">Portal Website</span>
+                Huntsman<br/>
+                <span class="title">Family Website</span>
               </h3>
             <% end %>
           </div>
           <div class="top-nav-right">
             <% if user_signed_in? %>
-              <%= link_to 'Edit your account', edit_user_registration_path, :class => 'navbar-link' %> |
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            <%= link_to "View all posts", posts_path %> |
+            <%= link_to "Image library", images_path %> |
+            <%= link_to 'Change password', edit_user_registration_path, :class => 'navbar-link' %>
             <% end %>
           </div>
         </nav>
@@ -57,17 +59,14 @@
       <% if user_signed_in? %>
         <div class="footer">
           <div class="row">
-            <div class="medium-4 small-12 columns">
-              <%= link_to "Posts", posts_path %>
+            <div class="medium-6 small-12 columns">
+              <%= link_to "View all posts", posts_path %>
             </div>
-            <div class="medium-4 small-12 columns">
+            <div class="medium-6 small-12 columns">
               <%= link_to "Image library", images_path %>
             </div>
-            <div class="medium-4 small-12 columns">
-              something here
-            </div>
             <% if current_user.username == "elizabethh" %>
-            <hr />
+              <hr />
               <div class="12-small columns">
                 <%= link_to "sign up new user", admin_page_path %>
               </div>

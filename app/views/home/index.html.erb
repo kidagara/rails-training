@@ -5,26 +5,18 @@
   <div class="home-header">
     <div class="home-header-top">
       <div class="home-header-image">
-        <%= image_tag("http://placehold.it/1000x400") %>
+        <%= image_tag("family-img-1.jpg") %>
       </div>
     </div>
     <div class="home-header-bottom hide-for-medium-down">
       <div>
-        <%= image_tag("http://placehold.it/190x66") %>
-        <!--
-        image_tag("family-img-2.jpg", size: "190x66")
-        image_tag("family-img-3.jpg", size: "190x66")
-        image_tag("family-img-4.jpg", size: "190x66")
-        -->
-        image one
+        <%= image_tag("family-img-2.jpg", size: "190x66") %>
       </div>
       <div>
-        <%= image_tag("http://placehold.it/190x66", size: "190x66") %>
-        image two
+        <%= image_tag("family-img-3.jpg", size: "190x66") %>
       </div>
       <div>
-        <%= image_tag("http://placehold.it/190x66", size: "190x66") %>
-        image three
+        <%= image_tag("family-img-4.jpg", size: "190x66") %>
       </div>
     </div>
   </div>
@@ -32,7 +24,7 @@
   <div class="medium-7 columns">
     <div class="posts-home">
       <h3>Most recent posts</h3>
-      <% @posts.limit(10).reverse_each do |post| %>
+      <% @posts.limit(10).each do |post| %>
         <div>
           <p><%= post.post_text %></p>
           <p>- <span class="posted-by-name"><%= post.posted_by %></span> <span class="posted-at"><%= post.created_at.strftime("%d %b %y") %></span></p>

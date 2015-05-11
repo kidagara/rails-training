@@ -1,3 +1,4 @@
+<% content_for :title, "Image Gallery" %>
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="small-11 columns">
@@ -8,17 +9,19 @@
     <div>
 
         <% @images.each do |image| %>
-          <div class="medium-2 large-1 small-3 columns">
+          <div class="medium-2 large-2 small-3 columns">
             <%= link_to(image) do %>
               <%= image_tag image.picture_url(:thumb) if image.picture? %>
             <% end %>
           </div>
-          <div class="medium-8 large-9 small-7 columns">
+          <div class="medium-8 large-7 small-7 columns">
+            <%= link_to(image) do %>
             <h3><%= image.name %></h3>
+            <% end %>
             <p><%= image.description %></p>
           </div>
-          <div class="small-2 columns"
-            <p><%= image.uploaded_by %></p>
+          <div class="small-2 columns">
+            <%= image.uploaded_by %><br/>
             <% if current_user.name == image.uploaded_by || current_user.username == "elizabethh" %>
               <%= link_to 'Edit', edit_image_path(image) %> | <%= link_to 'Delete', image, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
