@@ -1,6 +1,7 @@
 source "https://rubygems.org"
+ruby '2.2.0'
 
-gem "rails", "4.2.1"
+gem "rails", "4.2.0"
 
 gem "pg"
 gem "sass-rails", "~> 5.0"
@@ -20,6 +21,8 @@ gem 'fullcalendar-rails', '2.0.2.0'
 gem "font-awesome-rails"
 gem "cancan"
 
+gem 'puma'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :production, :staging do
@@ -38,7 +41,7 @@ group :development do
 end
 
 group :test do
-  gem 'codeclimate-test-reporter', require: nil
+  gem 'codeclimate-test-reporter', :require => nil
   gem 'database_cleaner'
   gem 'guard-livereload'
   gem 'guard-minitest'
